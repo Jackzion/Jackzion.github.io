@@ -46,7 +46,8 @@
 
 <link rel="stylesheet" href="/css/main.css" />
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 <body>
     <div id="layout">
         <transition name="fade">
@@ -229,12 +230,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指定序列化器</span></span><br><span class="line"><span class="type">Serializer</span> <span class="variable">serializer</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">ServiceLoader&lt;Serializer&gt; serviceLoader = ServiceLoader.load(Serializer.class);</span><br><span class="line"><span class="keyword">for</span> (Serializer service : serviceLoader) &#123;</span><br><span class="line">    serializer = service;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>META-INF文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">jdk=com.ziio.serializer.JdkSerializer</span><br><span class="line">hessian=com.ziio.serializer.HessianSerializer</span><br><span class="line">json=com.ziio.serializer.JsonSerializer</span><br><span class="line">kryo=com.ziio.serializer.KryoSerializer</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">jdk=com.ziio.serializer.JdkSerializer;</span><br><span class="line">hessian=com.ziio.serializer.HessianSerializer;</span><br><span class="line">json=com.ziio.serializer.JsonSerializer;</span><br><span class="line">kryo=com.ziio.serializer.KryoSerializer;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>自定义实现：我们也能自己实现 SPI 接入到别人的 SPI Loader 中 ， 添加一下 META-INFO 中的路径映射即可，原理其实就是SpiLoader注册的反射实现。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">mysssssSrializer=com.ziio.serializer.mySerializer</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">mysssssSrializer=com.ziio.serializer.mySerializer;</span><br></pre></td></tr></table></figure>
 
             
         </div>
@@ -306,7 +307,7 @@
         
         <span class="tag">
             
-            <a href="/tags/hexo/" style="color: #03a9f4">hexo</a>
+            <a href="/tags/hexo/" style="color: #ff7d73">hexo</a>
         </span>
         
     </div>

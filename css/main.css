@@ -487,7 +487,8 @@
     line-height: 2;
     overflow: auto;
     padding: 50px 30px 20px;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word; /* 新增这一行 */
 }
 .comment iframe,
 body::-webkit-scrollbar-track {
@@ -972,4 +973,13 @@ ol li {
     ol {
         padding-left: 20px;
     }
+}
+
+.highlight {
+    font-size: 13px;
+    line-height: 2;
+    overflow: auto;
+    padding: 50px 30px 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
