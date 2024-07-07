@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | ziio</title>
+    <title>什么SPI??真不熟。。 | ziio</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -37,6 +37,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -150,109 +154,90 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>什么SPI??真不熟。。</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/7
+        </span>
+        
+        <span class="category">
+            <a href="/categories/learning/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                learning
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/7/6</div>
-                <a href="/2024/07/06/hello-world/">
-                    <h3>Hello World</h3>
+            
+            <span class="tag">
+                
+                <a href="/tags/JAVA/" style="color: #ff7d73">
+                    JAVA
                 </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="第一篇文章">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/7/6</div>
-                <a href="/2024/07/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
-                    <h3>第一篇文章</h3>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/SPI/" style="color: #03a9f4">
+                    SPI
                 </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/daily/">
-                            <span class="icon">
-                                <i class="fa-solid fa-bookmark fa-fw"></i>
-                            </span>
-                            daily
-                        </a>
-                    </span>
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/hexo/" style="color: #00a596">
-                                hexo
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="什么spi??真不熟。。">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/7/7</div>
-                <a href="/2024/07/07/2/">
-                    <h3>什么SPI??真不熟。。</h3>
-                </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/learning/">
-                            <span class="icon">
-                                <i class="fa-solid fa-bookmark fa-fw"></i>
-                            </span>
-                            learning
-                        </a>
-                    </span>
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/JAVA/" style="color: #00bcd4">
-                                JAVA
-                            </a>
-                        </span>
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/SPI/" style="color: #00a596">
-                                SPI
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+            </span>
+            
+        </span>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h4 id="什么是-SPI？"><a href="#什么是-SPI？" class="headerlink" title="什么是 SPI？"></a>什么是 SPI？</h4><p>SPI（Service Provider Interface）服务提供接口是 Java 的机制，主要用于实现模块化开发和插件化扩展。</p>
+<p>SPI 机制允许服务提供者通过特定的配置文件将自己的实现注册到系统中，然后系统通过反射机制动态加载这些实现，而不需要修改原始框架的代码，从而实现了系统的解耦、提高了可扩展性。</p>
+<p>一个典型的 SPI 应用场景是 JDBC（Java 数据库连接库），不同的数据库驱动程序开发者可以使用 JDBC 库，然后定制自己的数据库驱动程序。</p>
+<p>此外，我们使用的主流 Java 开发框架中，几乎都使用到了 SPI 机制，比如 Servlet 容器、日志框架、ORM 框架、Spring 框架。<strong>所以这是 Java 开发者必须掌握的一个重要特性！</strong></p>
+<hr>
+<h4 id="API-SPI？"><a href="#API-SPI？" class="headerlink" title="API?SPI？"></a>API?SPI？</h4><p>两者就是反方向的钟，前者是消费方和服务方的契约，后者是服务方和供应方的契约。</p>
+<ul>
+<li><p>API 是应用程序提供接口，用于定义应用程序或库提供的功能和服务。告诉使用者你需要定义什么样的参数，来获取我的服务。</p>
+</li>
+<li><p>SPI 是服务提供者接口，用于定义服务的提供者（实现者）与服务框架之间的契约。它是用于扩展和插入实现的接口。</p>
+</li>
+</ul>
+<hr>
+<h4 id="如何实现-SPI？"><a href="#如何实现-SPI？" class="headerlink" title="如何实现 SPI？"></a>如何实现 SPI？</h4><p>分为系统实现和自定义实现。</p>
+<ul>
+<li>系统实现：将所需要注册的类路径存放到META-INF&#x2F;services 中，用到时，只需要使用内置的 ServiceLoader 反射加载指定接口实现类即可，文件名必须为接口类路径！！</li>
+</ul>
+<p>例：</p>
+<p>SpiLoader.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指定序列化器</span></span><br><span class="line"><span class="type">Serializer</span> <span class="variable">serializer</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">ServiceLoader&lt;Serializer&gt; serviceLoader = ServiceLoader.load(Serializer.class);</span><br><span class="line"><span class="keyword">for</span> (Serializer service : serviceLoader) &#123;</span><br><span class="line">    serializer = service;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>META-INF文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">jdk=com.ziio.serializer.JdkSerializer</span><br><span class="line">hessian=com.ziio.serializer.HessianSerializer</span><br><span class="line">json=com.ziio.serializer.JsonSerializer</span><br><span class="line">kryo=com.ziio.serializer.KryoSerializer</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自定义实现：我们也能自己实现 SPI 接入到别人的 SPI Loader 中 ， 添加一下 META-INFO 中的路径映射即可，原理其实就是SpiLoader注册的反射实现。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// com.ziio.rpc.serializer.Serializer</span></span><br><span class="line">mysssssSrializer=com.ziio.serializer.mySerializer</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -283,6 +268,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
