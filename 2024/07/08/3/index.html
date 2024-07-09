@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>第一篇文章 | ziio</title>
+    <title>^ --- ^ 神奇的异或运算 | ziio</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -157,22 +157,22 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>第一篇文章</h1>
+        <h1>^ --- ^ 神奇的异或运算</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/7/6
+            2024/7/8
         </span>
         
         <span class="category">
-            <a href="/categories/daily/">
+            <a href="/categories/%E7%AE%97%E6%B3%95/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                daily
+                算法
             </a>
         </span>
         
@@ -185,8 +185,22 @@
             
             <span class="tag">
                 
-                <a href="/tags/hexo/" style="color: #00a596">
-                    hexo
+                <a href="/tags/JAVA/" style="color: #00a596">
+                    JAVA
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #ffa2c4">
+                    算法
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/leecode/" style="color: #00bcd4">
+                    leecode
                 </a>
             </span>
             
@@ -195,11 +209,17 @@
     </div>
     
     <div class="content" v-pre>
-        <h2 id="广：感谢-argvchs-佬的-Hexo-主题-，非常简洁美观上手！！"><a href="#广：感谢-argvchs-佬的-Hexo-主题-，非常简洁美观上手！！" class="headerlink" title="广：感谢 argvchs 佬的 Hexo 主题 ，非常简洁美观上手！！"></a>广：感谢 argvchs 佬的 Hexo 主题 ，非常简洁美观上手！！</h2><hr>
-<p>前几天，想 spring + vue 弄个自己搭建的 blog ，结果拉了别人的 theme-template ，结果就全局变量子父组件不同步这个问题卡半天，没绷住，死来想去还是找到了令我眼前一亮的hexo theme。</p>
+        <h4 id="什么是异或运算？"><a href="#什么是异或运算？" class="headerlink" title="什么是异或运算？"></a>什么是异或运算？</h4><p>对于两二进制串，位相同取0，位不相同取1。</p>
+<p>看似简单的计算，带来的确实无比畅爽新颖的算法思路。</p>
+<p>比如，今早遇到的一个题目 —–&gt;</p>
 <hr>
-<p><img src="/images/1.jpg" alt="Image Description"></p>
-<h3 id="真心感谢！！"><a href="#真心感谢！！" class="headerlink" title="真心感谢！！"></a>真心感谢！！</h3>
+<h3 id="136-只出现一次的数字-力扣（LeetCode）"><a href="#136-只出现一次的数字-力扣（LeetCode）" class="headerlink" title="136. 只出现一次的数字 - 力扣（LeetCode）"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/single-number/">136. 只出现一次的数字 - 力扣（LeetCode）</a></h3><p>一眼丁真，直接无脑 hashmap&lt;string , Integer&gt; 结果一看题目，线性复杂和单调空间！</p>
+<p>寄中寄。。。</p>
+<p>结果看到卡神的答案，一眼万年，才知道异或还能那么玩。。。</p>
+<hr>
+<p>核心思想就是，两个数字不论顺序如何，只要相异或，就为0，而一次异或完所有的数，剩下的答案就是 single number 本身。</p>
+<p><strong>代码如下</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```java</span></span><br><span class="line"><span class="code">    public int singleNumber(int[] nums) &#123;</span></span><br><span class="line"><span class="code">        // 异或运算 ： 两个相同数字异或为 0  </span></span><br><span class="line"><span class="code">        // 对于每一位 ， 0/1 两两成对 ，所以遍历完一定为0，最后异或最后一个数的每一位 ，必然是它本身 ，与顺序无关</span></span><br><span class="line"><span class="code">        int x = 0;</span></span><br><span class="line"><span class="code">        for(int num : nums)&#123;</span></span><br><span class="line"><span class="code">            x^=num;</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">        return x;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br></pre></td></tr></table></figure>
     </div>
     
     

@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>^ --- ^ 神奇的异或运算 | ziio</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>ZIIO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;ZIIO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>^ --- ^ 神奇的异或运算</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/9
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                算法
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/JAVA/" style="color: #ff7d73">
+                    JAVA
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #03a9f4">
+                    算法
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/leecode/" style="color: #ffa2c4">
+                    leecode
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="曼哈顿距离-and-最小化-？"><a href="#曼哈顿距离-and-最小化-？" class="headerlink" title="曼哈顿距离 and 最小化 ？"></a>曼哈顿距离 and 最小化 ？</h2><h5 id="第一次看到那么恶心的题目，leecode-的每日真的无时无刻不考验人的心态。。"><a href="#第一次看到那么恶心的题目，leecode-的每日真的无时无刻不考验人的心态。。" class="headerlink" title="第一次看到那么恶心的题目，leecode 的每日真的无时无刻不考验人的心态。。"></a>第一次看到那么恶心的题目，leecode 的每日真的无时无刻不考验人的心态。。</h5><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimize-manhattan-distances/description/">3102. 最小化曼哈顿距离 - 力扣（LeetCode）</a></p>
+<hr>
+<h3 id="什么是曼哈顿距离？"><a href="#什么是曼哈顿距离？" class="headerlink" title="什么是曼哈顿距离？"></a>什么是曼哈顿距离？</h3><p>说白了就是 d(A,B)​&#x3D;∣x1​−x2​∣+∣y1​−y2​| , 一眼看下去 ，那不非常简单 ，只要暴力穷举，一次遍历要移除的点，然后再一次遍历其他点算出他们的距离，再比较min不就好。但是，又是超时！！！！！！</p>
+<p>所以又用到一些奇怪的数学知识了。</p>
+<p><img src="/images/2024-07-09-17-49-58-image.png" alt="曼哈顿推导"></p>
+<p>最后就成功将多个点混杂向量差，转换为同一个点的向量差，后面只要将每个点的 (Xi - Yi) ,</p>
+<p>(Xi + Yi) 保存到有序表（TreeMap）中，然后就能一次遍历，多次复用了。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minimumDistance</span><span class="params">(<span class="type">int</span>[][] points)</span> &#123;</span><br><span class="line">        <span class="comment">// 曼哈顿距离  --- 多变量混杂绝对值 变为单变量 绝对值 --- 暴力去绝对值</span></span><br><span class="line">        <span class="comment">// 用有序表 分别保存 x+y , x-y</span></span><br><span class="line">        TreeMap&lt;Integer,Integer&gt; sx = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;Integer,Integer&gt;();</span><br><span class="line">        TreeMap&lt;Integer,Integer&gt; sy = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span>[] p : points)&#123;</span><br><span class="line">            <span class="comment">// x-y</span></span><br><span class="line">            sx.put(p[<span class="number">0</span>] - p[<span class="number">1</span>],sx.getOrDefault(p[<span class="number">0</span>]-p[<span class="number">1</span>],<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">// x+y</span></span><br><span class="line">            sy.put(p[<span class="number">0</span>] + p[<span class="number">1</span>],sy.getOrDefault(p[<span class="number">0</span>]+p[<span class="number">1</span>],<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最小曼哈顿距离</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span>[] p : points)&#123;</span><br><span class="line">            <span class="comment">// 遍历每个点 --- 移除</span></span><br><span class="line">            sx.put(p[<span class="number">0</span>]-p[<span class="number">1</span>],sx.get(p[<span class="number">0</span>]-p[<span class="number">1</span>])-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(sx.get(p[<span class="number">0</span>]-p[<span class="number">1</span>])==<span class="number">0</span>)&#123;</span><br><span class="line">                sx.remove(p[<span class="number">0</span>]-p[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            sy.put(p[<span class="number">0</span>]+p[<span class="number">1</span>],sy.get(p[<span class="number">0</span>]+p[<span class="number">1</span>])-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(sy.get(p[<span class="number">0</span>]+p[<span class="number">1</span>])==<span class="number">0</span>)&#123;</span><br><span class="line">                sy.remove(p[<span class="number">0</span>]+p[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 算出最大曼哈顿距离 , 顶替最小值</span></span><br><span class="line">            <span class="comment">// d(A,B) = max(x1-y1 - (x2-y2),(x1+y1 - (x2+y2)</span></span><br><span class="line">            res = Math.min(res,Math.max(sx.lastKey() - sx.firstKey(),sy.lastKey() - sy.firstKey()));</span><br><span class="line">            <span class="comment">// 放回去</span></span><br><span class="line">            sx.put(p[<span class="number">0</span>] - p[<span class="number">1</span>], sx.getOrDefault(p[<span class="number">0</span>] - p[<span class="number">1</span>], <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            sy.put(p[<span class="number">0</span>] + p[<span class="number">1</span>], sy.getOrDefault(p[<span class="number">0</span>] + p[<span class="number">1</span>], <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 ziio
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
